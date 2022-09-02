@@ -1,7 +1,7 @@
 let utiles = ['lapiz', 'goma', 'corrector', 'lapicera', 'colores', 'resaltador', 'rueda']
 
 function agregarUtiles (){
-    let nuevosUtiles = prompt("Que util quieres agregar?")
+    let nuevosUtiles = prompt("Que util quieres agregar?").toLowerCase()
     let resultado = utiles.includes(nuevosUtiles)
         if (resultado === false) {
             utiles.push(nuevosUtiles)
@@ -12,7 +12,7 @@ function agregarUtiles (){
 }
 
 function quitarUtil (){
-    let restar = prompt("Que util quieres retirar?")
+    let restar = prompt("Que util quieres retirar?").toLowerCase()
     let retirar = utiles.indexOf(restar)
     if (retirar > -1) {
         let resultado = utiles.splice(retirar, 1)
