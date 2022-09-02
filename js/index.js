@@ -12,7 +12,7 @@ function agregarUtiles (){
 }
 
 function quitarUtil (){
-    let restar = prompt("Que util quieres retirar?").toLowerCase()
+    let restar = prompt("Que util no corresponde a la lista?").toLowerCase()
     let retirar = utiles.indexOf(restar)
     if (retirar > -1) {
         let resultado = utiles.splice(retirar, 1)
