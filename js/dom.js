@@ -7,8 +7,8 @@ function cargarProductos() {
             fila = `<tr>
                         <td>${producto.servicio}</td>
                         <td>${producto.plan}</td>
-                        <td>${producto.importe}</td>
-                        <td>${producto.final}</td>
+                        <td>$${producto.importe}</td>
+                        <td>$${producto.final}</td>
                     </tr>`
                     tabla.innerHTML += fila
         })

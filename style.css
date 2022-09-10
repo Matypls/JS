@@ -1,0 +1,33 @@
+h1{
+    font-size: 42px;
+    text-align: center;
+    margin: 20px;
+}
+
+.general{
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+}
+
+.tablaGeneral{
+    margin: 20px;
+}
+
+.cabecera{
+    background-color: rgb(133, 136, 119);
+}
+
+.cabecera tr th{
+    padding: 5px 35px;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+#infoTabla{
+    text-align: center;
+}
+
+#infoTabla tr td{
+    border: 2px solid black;
+    padding: 20px;
+}
