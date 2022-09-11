@@ -31,3 +31,24 @@ h1{
     border: 2px solid black;
     padding: 20px;
 }
+
+.cargas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input{
+    width: 50%;
+    text-align: center;
+    height: 25px;
+    margin: 5px;
+    font-size: 15px;
+}
+
+button{
+    height: 30px;
+    background-color: rgb(133, 136, 119);
+    font-size: 15px;
+    margin: 20px;
+}

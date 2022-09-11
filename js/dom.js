@@ -1,9 +1,15 @@
 const tabla = document.querySelector("#infoTabla")
+const inputServicio = document.querySelector('#inputServicio')
+const inputDescripcion = document.querySelector('#inputDescripcion')
+const inputImporte = document.querySelector('#inputImporte')
+const inputIva = document.querySelector('#inputIva')
+const agregando = document.querySelector('#agregando')
+const form = document.querySelector("form")
 
-function cargarProductos() {
+function cargarProductos(pedro) {
     let fila = ""
         tabla.innerHTML = ""
-        servicios.forEach(producto => { 
+        pedro.forEach(producto => { 
             fila = `<tr>
                         <td>${producto.servicio}</td>
                         <td>${producto.plan}</td>
@@ -12,6 +18,6 @@ function cargarProductos() {
                     </tr>`
                     tabla.innerHTML += fila
         })
-    }
-    cargarProductos()
+}
+cargarProductos(conjunto)
 

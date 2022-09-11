@@ -6,3 +6,29 @@ const servicios = [
     {servicio: "Netflix", plan: "Normal", importe: 799, final: (799 * 1.74).toFixed()},
     {servicio: "Netflix", plan: "Premium", importe: 1199, final: (1199 * 1.74).toFixed()},
 ]
+
+class Servi {
+    constructor(servicio, plan, importe, final) {
+        this.servicio = servicio
+        this.plan = plan
+        this.importe = importe
+        this.final = final
+    }
+}
+
+function generadorAutomatico() {
+    let servicio = inputServicio.value
+    let descripcion = inputDescripcion.value
+    let importe = parseFloat(inputImporte.value)
+    let final = importe * parseFloat(inputIva.value)
+    const nuevoServicio = new Servi(servicio, descripcion, importe,  final)
+    conjunto.push(nuevoServicio)
+}
+
+agregando.addEventListener("click", ()=> {
+    generadorAutomatico();
+    cargarProductos(conjunto);
+})
+
+const serviciosAgregados = [] 
+const conjunto = servicios.concat(serviciosAgregados)
