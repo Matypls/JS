@@ -4,6 +4,8 @@ const inputDescripcion = document.querySelector('#inputDescripcion')
 const inputImporte = document.querySelector('#inputImporte')
 const inputIva = document.querySelector('#inputIva')
 const agregando = document.querySelector('#agregando')
+const totalHTML = document.querySelector("#precioTotal")
+let total 
 
 function cargarProductos(pedro) {
     let fila = ""
@@ -24,7 +26,9 @@ cargarProductos(conjunto)
 function incorporarAlCarro() {
     conjunto.forEach(producto => {      
         const agregar = document.querySelector(`#final${producto.final}`)  
-        agregar.addEventListener("click", ()=> Carrito(`${producto.final}`))
+        agregar.addEventListener("click", ()=> {
+            calcularTotal()
+            Carrito(`${producto.final}`)})    
     })
 }
 incorporarAlCarro()
@@ -32,9 +36,8 @@ incorporarAlCarro()
 function Carrito(final) {
     const servicioCarrito = conjunto.find(producto => producto.final == final)
     carroFinal.push(servicioCarrito)
-    localStorage.setItem("carritoFinal", JSON.stringify(carroFinal))
+    localStorage.setItem("carritoFinal", JSON.stringify(carroFinal))  
 }
-Carrito()
 
 function restaurarCarrito() {
     if (localStorage.getItem("carritoFinal")) {
@@ -42,3 +45,8 @@ function restaurarCarrito() {
     }
 }
 restaurarCarrito()
+
+function calcularTotal(){
+    total = carroFinal.map(producto => parseInt(producto.final)).reduce((prev, curr) => prev + curr, 0);
+    let sumaTotal = totalHTML.innerHTML = `total: ${total}`
+}

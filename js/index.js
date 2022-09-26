@@ -29,6 +29,7 @@ agregando.addEventListener("click", ()=> {
     generadorAutomatico();
     cargarProductos(conjunto);
     incorporarAlCarro();
+
 })
 
 let carroFinal = []
