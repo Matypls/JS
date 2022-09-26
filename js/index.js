@@ -20,15 +20,17 @@ function generadorAutomatico() {
     let servicio = inputServicio.value
     let descripcion = inputDescripcion.value
     let importe = parseFloat(inputImporte.value)
-    let final = importe * parseFloat(inputIva.value)
-    const nuevoServicio = new Servi(servicio, descripcion, importe,  final)
+    let final = (importe / 100) * inputIva.value + importe
+    const nuevoServicio = new Servi(servicio, descripcion, importe, final)
     conjunto.push(nuevoServicio)
 }
 
 agregando.addEventListener("click", ()=> {
     generadorAutomatico();
     cargarProductos(conjunto);
+    incorporarAlCarro();
 })
 
+let carroFinal = []
 const serviciosAgregados = [] 
-const conjunto = servicios.concat(serviciosAgregados)
+const conjunto = servicios.concat(serviciosAgregados) 

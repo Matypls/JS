@@ -4,7 +4,6 @@ const inputDescripcion = document.querySelector('#inputDescripcion')
 const inputImporte = document.querySelector('#inputImporte')
 const inputIva = document.querySelector('#inputIva')
 const agregando = document.querySelector('#agregando')
-const form = document.querySelector("form")
 
 function cargarProductos(pedro) {
     let fila = ""
@@ -15,9 +14,31 @@ function cargarProductos(pedro) {
                         <td>${producto.plan}</td>
                         <td>$${producto.importe}</td>
                         <td>$${producto.final}</td>
-                    </tr>`
+                        <td><button id="final${producto.final}">Adquirir</button></td>
+                        </tr>`
                     tabla.innerHTML += fila
         })
 }
 cargarProductos(conjunto)
 
+function incorporarAlCarro() {
+    conjunto.forEach(producto => {      
+        const agregar = document.querySelector(`#final${producto.final}`)  
+        agregar.addEventListener("click", ()=> Carrito(`${producto.final}`))
+    })
+}
+incorporarAlCarro()
+
+function Carrito(final) {
+    const servicioCarrito = conjunto.find(producto => producto.final == final)
+    carroFinal.push(servicioCarrito)
+    localStorage.setItem("carritoFinal", JSON.stringify(carroFinal))
+}
+Carrito()
+
+function restaurarCarrito() {
+    if (localStorage.getItem("carritoFinal")) {
+        carroFinal = JSON.parse(localStorage.getItem("carritoFinal"))
+    }
+}
+restaurarCarrito()
