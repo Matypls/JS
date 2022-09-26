@@ -27,8 +27,9 @@ function incorporarAlCarro() {
     conjunto.forEach(producto => {      
         const agregar = document.querySelector(`#final${producto.final}`)  
         agregar.addEventListener("click", ()=> {
+            Carrito(`${producto.final}`)
             calcularTotal()
-            Carrito(`${producto.final}`)})    
+        })    
     })
 }
 incorporarAlCarro()
@@ -48,5 +49,5 @@ restaurarCarrito()
 
 function calcularTotal(){
     total = carroFinal.map(producto => parseInt(producto.final)).reduce((prev, curr) => prev + curr, 0);
-    let sumaTotal = totalHTML.innerHTML = `total: ${total}`
+    let sumaTotal = totalHTML.innerHTML = `TOTAL: ${total}`
 }

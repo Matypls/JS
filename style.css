@@ -4,6 +4,12 @@ h1{
     margin: 20px;
 }
 
+h2{
+    font-size: 35px;
+    text-align: center;
+    margin: 20px;
+}
+
 .general{
     display: flex;
     flex-direction: column;
