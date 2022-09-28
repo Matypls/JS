@@ -29,9 +29,8 @@ agregando.addEventListener("click", ()=> {
     generadorAutomatico();
     cargarProductos(conjunto);
     incorporarAlCarro();
-
 })
 
-let carroFinal = []
+const carroFinal = JSON.parse(localStorage.getItem("carritoFinal")) || []
 const serviciosAgregados = [] 
-const conjunto = servicios.concat(serviciosAgregados) 
+const conjunto = [...servicios, ...serviciosAgregados]

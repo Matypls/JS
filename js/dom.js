@@ -28,7 +28,7 @@ function incorporarAlCarro() {
         const agregar = document.querySelector(`#final${producto.final}`)  
         agregar.addEventListener("click", ()=> {
             Carrito(`${producto.final}`)
-            calcularTotal()
+            calcularTotal(...carroFinal)
         })    
     })
 }
@@ -41,13 +41,11 @@ function Carrito(final) {
 }
 
 function restaurarCarrito() {
-    if (localStorage.getItem("carritoFinal")) {
-        carroFinal = JSON.parse(localStorage.getItem("carritoFinal"))
-    }
+    localStorage.getItem("carritoFinal") && carroFinal
 }
 restaurarCarrito()
 
-function calcularTotal(){
-    total = carroFinal.map(producto => parseInt(producto.final)).reduce((prev, curr) => prev + curr, 0);
-    let sumaTotal = totalHTML.innerHTML = `TOTAL: ${total}`
+function calcularTotal(...array){
+    total = array.map(producto => parseInt(producto.final)).reduce((prev, curr) => prev + curr, 0);
+    totalHTML.innerHTML = `TOTAL: ${total}`
 }
