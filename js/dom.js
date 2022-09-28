@@ -49,5 +49,5 @@ restaurarCarrito()
 
 function calcularTotal(){
     total = carroFinal.map(producto => parseInt(producto.final)).reduce((prev, curr) => prev + curr, 0);
-    let sumaTotal = totalHTML.innerHTML = `TOTAL: ${total}`
+    totalHTML.innerHTML = `TOTAL: ${total}`
 }
