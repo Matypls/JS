@@ -22,10 +22,9 @@ function cargarProductos(pedro) {
                     tabla.innerHTML += fila
         })
 }
-cargarProductos(conjunto)
 
 function incorporarAlCarro() {
-    conjunto.forEach(producto => {      
+    servicios.forEach(producto => {      
         const agregar = document.querySelector(`#final${producto.final}`)  
         agregar.addEventListener("click", ()=> {
             carrito(`${producto.final}`)
@@ -43,10 +42,9 @@ function incorporarAlCarro() {
         })    
     })
 }
-incorporarAlCarro()
 
 function carrito(final) {
-    const servicioCarrito = conjunto.find(producto => producto.final == final)
+    const servicioCarrito = servicios.find(producto => producto.final == final)
     carroFinal.push(servicioCarrito)
     localStorage.setItem("carritoFinal", JSON.stringify(carroFinal))  
 }
