@@ -62,3 +62,7 @@ button{
     font-size: 15px;
     margin: 20px;
 }
+
+.botones{
+    display: flex;
+}

@@ -1,8 +1,8 @@
 [
-    {"servicio": "Spotify", "plan": "Economico", "importe": 279, "final": 485},
-    {"servicio": "Spotify", "plan": "Normal", "importe": 389, "final": 677},
-    {"servicio": "Spotify", "plan": "Premium", "importe": 489, "final": 851},
-    {"servicio": "Netflix", "plan": "Economico", "importe": 429, "final": 746},
-    {"servicio": "Netflix", "plan": "Normal", "importe": 799, "final": 1390},
-    {"servicio": "Netflix", "plan": "Premium", "importe": 1199, "final": 2086}
+    {"servicio": "Spotify", "plan": "Economico", "importe": 279, "final": 485, "id": 1},
+    {"servicio": "Spotify", "plan": "Normal", "importe": 389, "final": 677, "id": 2},
+    {"servicio": "Spotify", "plan": "Premium", "importe": 489, "final": 851, "id": 3},
+    {"servicio": "Netflix", "plan": "Economico", "importe": 429, "final": 746, "id": 4},
+    {"servicio": "Netflix", "plan": "Normal", "importe": 799, "final": 1390, "id": 5},
+    {"servicio": "Netflix", "plan": "Premium", "importe": 1199, "final": 2086, "id": 6}
 ]

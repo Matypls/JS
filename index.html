@@ -25,17 +25,22 @@
             <Tbody id="infoTabla"></Tbody>
         </table>
         <h2 id="precioTotal">TOTAL:</h2>
-        <button id="vaciar">Vaciar carro</button>
+        <div class="botones">
+            <button id="vaciar">Vaciar carro</button>
+            <a href="./carro.html">
+                <button>Ir al carro</button>
+            </a>
+        </div>
     </section> 
     <section class="cargas">
         <input type="text" id="inputServicio" placeholder="Servicio agregar">
         <input type="text" id="inputDescripcion" placeholder="Descripcion del servicio">
         <input type="number" id="inputImporte" placeholder="Importe del producto y/o servicio">
         <input type="number" id="inputIva" placeholder="Cuanto impuesto tiene su servicio">
-        <button type="submit" id="agregando"> Agregar servicio</button>
+        <button type="submit" id="agregandoServicios"> Agregar servicio</button>
     </section>
-    <script src="./js/index.js"></script> 
-    <script src="./js/dom.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/comun.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>
