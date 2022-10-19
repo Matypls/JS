@@ -10,10 +10,14 @@ h2{
     margin: 20px;
 }
 
+body{
+    background: linear-gradient(180deg, #f0c338 15%, #fbd97a 30%, #ffe5a8 60%, #f3eacd 90%);
+}
+
 .general{
     display: flex;
     flex-direction: column;
-    align-items: center;    
+    align-items: center;
 }
 
 .tablaGeneral{
@@ -57,4 +61,8 @@ button{
     background-color: rgb(133, 136, 119);
     font-size: 15px;
     margin: 20px;
+}
+
+.botones{
+    display: flex;
 }

@@ -1,18 +1,18 @@
-const servicios = [
-    {servicio: "Spotify", plan: "Economico", importe: 279, final: (279 * 1.74).toFixed()},
-    {servicio: "Spotify", plan: "Normal", importe: 389, final: (389 * 1.74).toFixed()},
-    {servicio: "Spotify", plan: "Premium", importe: 489, final: (489 * 1.74).toFixed()},
-    {servicio: "Netflix", plan: "Economico", importe: 429, final: (429 * 1.74).toFixed()},
-    {servicio: "Netflix", plan: "Normal", importe: 799, final: (799 * 1.74).toFixed()},
-    {servicio: "Netflix", plan: "Premium", importe: 1199, final: (1199 * 1.74).toFixed()},
-]
+const tabla = document.querySelector("#infoTabla")
+const inputServicio = document.querySelector('#inputServicio')
+const inputDescripcion = document.querySelector('#inputDescripcion')
+const inputImporte = document.querySelector('#inputImporte')
+const inputIva = document.querySelector('#inputIva')
+const agregandoServicios = document.querySelector('#agregandoServicios')
+const vaciar = document.querySelector("#vaciar")
 
 class Servi {
-    constructor(servicio, plan, importe, final) {
+    constructor(servicio, plan, importe, final, id) {
         this.servicio = servicio
         this.plan = plan
         this.importe = importe
         this.final = final
+        this.id = id
     }
 }
 
@@ -21,17 +21,72 @@ function generadorAutomatico() {
     let descripcion = inputDescripcion.value
     let importe = parseFloat(inputImporte.value)
     let final = (importe / 100) * inputIva.value + importe
-    const nuevoServicio = new Servi(servicio, descripcion, importe, final)
-    conjunto.push(nuevoServicio)
+    let id = creoID()
+    const nuevoServicio = new Servi(servicio, descripcion, importe, final, id)
+    servicios.push(nuevoServicio)
 }
 
-agregando.addEventListener("click", ()=> {
-    generadorAutomatico();
-    cargarProductos(conjunto);
-    incorporarAlCarro();
+const agregaData = async()=> {
+    try {
+        const response = await fetch('../data/data.json')
+        const data = await response.json()
+        servicios.push(...data)
+        servicios.forEach(producto => {
+            producto.id = creoID()
+        })
+        cargarProductos(servicios)
+        incorporarAlCarro(servicios)
+    } catch (error) {
+        console.log(error)
+    }
+}
+agregaData() 
 
+function cargarProductos(pedro) {
+    let fila = ""
+    tabla.innerHTML = ""
+    pedro.forEach(producto => { 
+        fila = `<tr>
+        <td>${producto.servicio}</td>
+        <td>${producto.plan}</td>
+        <td>$${producto.importe}</td>
+        <td>$${producto.final}</td>
+        <td><button id="id${producto.id}">Adquirir</button></td>
+        </tr>`
+        tabla.innerHTML += fila
+    })
+}
+
+function incorporarAlCarro() {
+    servicios.forEach(producto => {      
+        const agregar = document.querySelector(`#id${producto.id}`)  
+        agregar.addEventListener("click", ()=> {
+            carrito(`${producto.id}`)
+            calcularTotal(...carroFinal)
+            Toastify({
+                text: "Producto añadido",
+                duration: 750,
+                style: {
+                    background: "rgb(133, 136, 119)",
+                    width: '200px',
+                    textAlign: 'center', 
+                    color: "black"  
+                }
+            }).showToast();
+        })    
+    })
+} 
+
+//boton adquirir
+function carrito(id) {
+    const servicioCarrito = servicios.find(producto => producto.id == id)
+    carroFinal.push(servicioCarrito)
+    localStorage.setItem("carritoFinal", JSON.stringify(carroFinal))  
+}
+
+agregandoServicios.addEventListener("click", ()=> {
+    generadorAutomatico();
+    cargarProductos(servicios);
+    incorporarAlCarro();
 })
 
-let carroFinal = []
-const serviciosAgregados = [] 
-const conjunto = servicios.concat(serviciosAgregados) 
