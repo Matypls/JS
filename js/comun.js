@@ -17,33 +17,48 @@ restaurarCarrito()
 
 function vaciarCarro(){
     vaciar.addEventListener("click", ()=> {
-        Swal.fire({
-            title: 'Quieres vaciar el carro?',
-            text: "Se perderan todos los productos",
-            icon: 'question',
-            showCancelButton: true,
-            confirmButtonColor: 'green',
-            cancelButtonText: 'No',
-            cancelButtonColor: 'red',
-            confirmButtonText: 'vaciar',
-            background: 'linear-gradient(180deg, #f0c338 15%, #fbd97a 30%, #ffe5a8 60%, #f3eacd 90%)'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire({
-                title: 'Carro vaciado',
-                icon: "success",
-                confirmButtonText: 'ok',
-                confirmButtonColor: 'green',
-                background: 'linear-gradient(180deg, #f0c338 15%, #fbd97a 30%, #ffe5a8 60%, #f3eacd 90%)',
-                iconColor: 'orange'
-                }).then((result2) => {
-                    if (result2.isConfirmed){
-                        localStorage.clear()
-                        location.reload() 
-                    }
-                })
-            }           
-        })        
+        if (carroFinal.length > 0){
+            Swal.fire({
+                title: 'Quieres vaciar el carro?',
+                text: "Se perderan todos los productos",
+                icon: 'question',
+                iconColor: 'white',
+                showCancelButton: true,
+                confirmButtonColor: '#0d2546',
+                cancelButtonText: 'No',
+                cancelButtonColor: 'rgb(183, 194, 186)',
+                confirmButtonText: 'vaciar',
+                background: '#0d2546',
+                color: "white"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                    title: 'Carro vaciado',
+                    icon: "success",
+                    confirmButtonText: 'ok',
+                    confirmButtonColor: '#0d2546',
+                    iconColor: 'white',
+                    background: '#0d2546',
+                    color: "white"
+                    }).then((result2) => {
+                        if (result2.isConfirmed){
+                            localStorage.clear()
+                            window.location="../index.html"; 
+                        }
+                    })
+                }           
+            })        
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'No hay nada que vaciar',
+                text: 'Carga productos en el carrito',
+                background: '#0d2546',
+                color: 'white',
+                iconColor: 'white',
+                showConfirmButton: false,
+              })
+        }
     })
 }
 vaciarCarro()

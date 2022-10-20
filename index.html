@@ -7,40 +7,52 @@
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400&display=swap" rel="stylesheet"> 
+    <script defer src="./js/index.js"></script>
+    <script defer src="./js/comun.js"></script>
     <title>Desafio</title>
 </head>
 <body>
-    <section class="general">
+    <header>
         <h1>STORE</h1> 
-        <table class="tablaGeneral">
-            <thead class="cabecera">
-                <tr>
-                    <th>SERVICIO</th>
-                    <th>PLAN</th>
-                    <th>IMPORTE</th>
-                    <th>FINAL</th>
-                    <th>AÑADIR AL CARRO</th>                      
-                </tr> 
-            </thead>
-            <Tbody id="infoTabla"></Tbody>
-        </table>
-        <h2 id="precioTotal">TOTAL:</h2>
-        <div class="botones">
-            <button id="vaciar">Vaciar carro</button>
-            <a href="./carro.html">
-                <button>Ir al carro</button>
-            </a>
-        </div>
-    </section> 
-    <section class="cargas">
-        <input type="text" id="inputServicio" placeholder="Servicio agregar">
-        <input type="text" id="inputDescripcion" placeholder="Descripcion del servicio">
-        <input type="number" id="inputImporte" placeholder="Importe del producto y/o servicio">
-        <input type="number" id="inputIva" placeholder="Cuanto impuesto tiene su servicio">
-        <button type="submit" id="agregandoServicios"> Agregar servicio</button>
-    </section>
-    <script src="./js/index.js"></script>
-    <script src="./js/comun.js"></script>
+    </header>
+    <main>
+        <section class="general">            
+            <table class="tablaGeneral">
+                <thead class="cabecera">
+                    <tr>
+                        <th>SERVICIO</th>
+                        <th>PLAN</th>
+                        <th>IMPORTE</th>
+                        <th>FINAL</th>
+                        <th>AÑADIR AL CARRO</th>                      
+                    </tr> 
+                </thead>
+                <Tbody id="infoTabla" class="tabla"></Tbody>
+            </table>
+            <h2 id="precioTotal">TOTAL:</h2>
+            <div class="botones">
+                <button id="vaciar">Vaciar carro</button>
+                <a href="./carro.html">
+                    <button>Ir al carro</button>
+                </a>
+            </div>
+        </section>     
+        <section class="cargas">
+            <input type="text" id="inputServicio" placeholder="Servicio agregar">
+            <input type="text" id="inputDescripcion" placeholder="Descripcion del servicio">
+            <input type="number" id="inputImporte" placeholder="Importe del producto y/o servicio">
+            <input type="number" id="inputIva" placeholder="Cuanto impuesto tiene su servicio">
+            <button type="submit" id="agregandoServicios"> Agregar servicio</button>
+        </section>
+    </main>
+        
+    <footer>
+        <h3>Proyecto final de javascript, creado por Matias Rabano Caceres</h3>
+    </footer>
+    
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>

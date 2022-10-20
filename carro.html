@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400&display=swap" rel="stylesheet">
+    <script defer src="./js/comun.js"></script>     
+    <script defer src="./js/carro.js"></script>
     <title>Carro de compra</title>
 </head>
 <body>
@@ -14,27 +19,29 @@
         <h1>Carro de compra</h1>
     </header>
     <main>
-        <table class="tablaGeneral">
-            <thead class="cabecera">
-                <tr>
-                    <th>SERVICIO</th>
-                    <th>PLAN</th>
-                    <th>IMPORTE</th>
-                    <th>FINAL</th>
-                    <th>ELIMINAR DEL CARRO</th>                      
-                </tr> 
-            </thead>
-            <Tbody id="infoCarro"></Tbody>
-        </table>
-        <h2 id="precioTotal">TOTAL:</h2>
-        <button id="vaciar">Vaciar carro</button>
-        <button id="comprar">Comprar</button>
+        <section class="general">
+            <table class="tablaGeneral">
+                <thead class="cabecera">
+                    <tr>
+                        <th>SERVICIO</th>
+                        <th>PLAN</th>
+                        <th>IMPORTE</th>
+                        <th>FINAL</th>
+                        <th>ELIMINAR DEL CARRO</th>                      
+                    </tr> 
+                </thead>
+                <Tbody id="infoCarro" class="tabla"></Tbody>
+            </table>
+            <h2 id="precioTotal">TOTAL:</h2>
+            <div class="botones">
+                <button id="vaciar">Vaciar carro</button>
+                <button id="comprar">Comprar</button>
+            </div>
+        </section>
     </main>
     <footer>
-
+        <h3>Proyecto final de javascript, creado por Matias Rabano Caceres</h3>
     </footer>
-    <script src="./js/comun.js"></script>     
-    <script src="./js/carro.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 </body>

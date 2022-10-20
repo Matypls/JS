@@ -1,11 +1,11 @@
 const comprar = document.querySelector("#comprar")
 const carro = document.querySelector("#infoCarro")
 
-
-function visualCarro(roberto) {
+function visualCarro(roberto) {    
     let fila = ""
         carro.innerHTML = ""
         roberto.forEach(producto => { 
+            producto.id = creoID()
             fila = `<tr>
                         <td>${producto.servicio}</td>
                         <td>${producto.plan}</td>
@@ -29,14 +29,22 @@ function eliminarProducto() {
     carroFinal.forEach(producto => {
         let eliminar = document.querySelector(`#id${producto.id}`)
         eliminar.addEventListener("click", () => {
-            carritoEliminar(`${producto.id}`);
-            calcularTotal(...carroFinal);
+            carritoEliminar(`${producto.id}`)
+            calcularTotal(...carroFinal)
         })
     })
+    Toastify({
+        text: "Producto eliminado",
+        duration: 750,
+        style: {
+            background: "#0d2546",
+            width: '200px',
+            textAlign: 'center', 
+            color: "white"  
+        }
+    }).showToast();
 }
-
 eliminarProducto();
-
 
 function realizarCompra(){
     comprar.addEventListener("click", ()=> {
@@ -45,24 +53,27 @@ function realizarCompra(){
                 title: '¿Quiere realizar la compra?',
                 text: `Tu saldo abonar seria de $${total}`,
                 icon: 'question',
+                iconColor: 'white',
                 showCancelButton: true,
-                confirmButtonColor: 'green',
-                cancelButtonColor: 'red',
+                confirmButtonColor: '#0d2546',
+                cancelButtonColor: 'rgb(183, 194, 186)',
                 confirmButtonText: 'Si',
                 cancelButtonText: 'No',
-                background: 'linear-gradient(180deg, #f0c338 15%, #fbd97a 30%, #ffe5a8 60%, #f3eacd 90%)'
+                background: '#0d2546',
+                color: 'white'
               }).then((result) => {
                 if (result.isConfirmed) {
                   Swal.fire({
                     title: 'Compra realizada',
-                    text: 'Muchas gracias por adquirir los servicios',
-                    text: `Tu ID de compra es #${Math.random().toString(36).slice(2)}`,
+                    text: `Muchas gracias por adquirir los servicios, tu ID de compra es #${Math.random().toString(36).slice(2)}`,
                     icon: 'success',
-                    background: 'linear-gradient(180deg, #f0c338 15%, #fbd97a 30%, #ffe5a8 60%, #f3eacd 90%)'
+                    background: '#0d2546',
+                    color: 'white',
+                    confirmButtonColor: '#0d2546'
                     }).then((result2) => {
                         if (result2.isConfirmed){
                             localStorage.clear()
-                            location.reload() 
+                            window.location="../index.html"; 
                         }
                     })              
                 }
@@ -70,13 +81,15 @@ function realizarCompra(){
         } else {
             Swal.fire({
                 icon: 'error',
+                iconColor: 'White',
                 title: 'Tu carrito esta vacio',
                 text: 'Vamos a comprar algo',
+                background: '#0d2546',
+                color: 'white',
                 showConfirmButton: false,
                 footer: '<a href="../index.html">Volver a la tienda</a>'
-              })
-        }
-        
+            })
+        }    
     })
 }
 realizarCompra()

@@ -58,7 +58,7 @@ function cargarProductos(pedro) {
 }
 
 function incorporarAlCarro() {
-    servicios.forEach(producto => {      
+    servicios.forEach(producto => {     
         const agregar = document.querySelector(`#id${producto.id}`)  
         agregar.addEventListener("click", ()=> {
             carrito(`${producto.id}`)
@@ -67,17 +67,16 @@ function incorporarAlCarro() {
                 text: "Producto añadido",
                 duration: 750,
                 style: {
-                    background: "rgb(133, 136, 119)",
+                    background: "#0d2546",
                     width: '200px',
                     textAlign: 'center', 
-                    color: "black"  
+                    color: "white"
                 }
             }).showToast();
         })    
     })
 } 
 
-//boton adquirir
 function carrito(id) {
     const servicioCarrito = servicios.find(producto => producto.id == id)
     carroFinal.push(servicioCarrito)

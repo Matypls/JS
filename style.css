@@ -10,8 +10,19 @@ h2{
     margin: 20px;
 }
 
+h3{
+    text-align: center;
+    font-size: 30px;
+}
+
 body{
-    background: linear-gradient(180deg, #f0c338 15%, #fbd97a 30%, #ffe5a8 60%, #f3eacd 90%);
+    background: linear-gradient(115deg, rgba(187,210,197,1) 0%, rgba(83,105,118,1) 50%, rgba(41,46,73,1) 100%);
+    max-height: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+footer{
+    padding: 25px 0px;
 }
 
 .general{
@@ -25,7 +36,7 @@ body{
 }
 
 .cabecera{
-    background-color: rgb(133, 136, 119);
+    background-color: rgb(183, 194, 186);
 }
 
 .cabecera tr th{
@@ -33,11 +44,11 @@ body{
     border: 2px solid rgb(0, 0, 0);
 }
 
-#infoTabla{
+.tabla{
     text-align: center;
 }
 
-#infoTabla tr td{
+.tabla tr td{
     border: 2px solid black;
     padding: 20px;
 }
@@ -49,7 +60,7 @@ body{
 }
 
 input{
-    width: 50%;
+    width: 45%;
     text-align: center;
     height: 25px;
     margin: 5px;
@@ -58,9 +69,12 @@ input{
 
 button{
     height: 30px;
-    background-color: rgb(133, 136, 119);
-    font-size: 15px;
-    margin: 20px;
+    width: 150px;
+    margin: 10px;
+    background-color: #0d2546;
+    color: white;
+    border: none;
+    cursor: pointer;    
 }
 
 .botones{
